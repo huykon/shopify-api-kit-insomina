@@ -1,0 +1,35 @@
+_id: req_087af103cd424ba8a888617fb9022154
+type: Request
+parentId: fld_e078e6879f9545ad9dd1d98ba2c6fd2b
+modified: 1675455642
+created: 1675455642
+url: https://{{ _.base_url }}/api/{{ _.api_version }}/graphql.json
+name: Retrieve checkout url
+description: ""
+method: POST
+body:
+  mimeType: application/graphql
+  text: "{\"query\":\"# Query gets cart by id and returns the cart's checkoutURL.
+    That url directs you to the web checkout flow. More info here:
+    https://shopify.dev/custom-storefronts/checkout/create#shopify-web-checkout\
+    \\nquery checkoutURL($cartId: ID!) {\\n  cart(id: $cartId)
+    {\\n    checkoutUrl\\n  }\\n}\\n\",\"variables\":\"{\\n  \\\"cartId\\\":
+    \\\"gid://shopify/Cart/50b74bf9dc2bc7a410053b5ffb31ba51\\\"\\n}\\n\"}"
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1
+  - name: X-Shopify-Storefront-Access-Token
+    value: "{{ _.storefront_access_token }}"
+    description: ""
+    id: pair_2
+authentication: {}
+metaSortKey: 4
+isPrivate: false
+settingStoreCookies: false
+settingSendCookies: false
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

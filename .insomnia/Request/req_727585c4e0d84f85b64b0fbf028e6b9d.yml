@@ -1,0 +1,44 @@
+_id: req_727585c4e0d84f85b64b0fbf028e6b9d
+type: Request
+parentId: fld_735312485f234f7bac4acb5cc90e3e34
+modified: 1675455642
+created: 1675455642
+url: https://{{ _.base_url }}/api/{{ _.api_version }}/graphql.json
+name: Activate customer
+description: ""
+method: POST
+body:
+  mimeType: application/graphql
+  text: '{"query":"# Once a customer account is created, an email will be sent to
+    the customer with the account activation url. This mutation will use the
+    activationToken from the activation url to active the customer account. \n#
+    You can also use the activation url directly to activate the customer
+    account. See customerActivateByUrl mutation
+    https://shopify.dev/api/storefront/2023-01/mutations/customerActivateByUrl\n\nmutation
+    activateCustomerAccount($id: ID!, $input: CustomerActivateInput!)
+    {\n  customerActivate(id: $id, input: $input) {\n    customer
+    {\n      id\n      email\n      firstName\n      lastName\n      phone\n    }\n    customerAccessToken
+    {\n      accessToken\n      expiresAt\n    }\n    customerUserErrors
+    {\n      code\n      field\n      message\n    }\n  }\n}\n\n","variables":"{\n\t\"id\":
+    \"gid://shopify/Customer/5820694691862\",\n\t\"input\":
+    {\n\t\t\"activationToken\":
+    \"da48cbd301e7c31a9d5dca03fcf5cdb6-1671054502\",\n\t\t\"password\":
+    \"qwerty12345\"\n\t}\n}"}'
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1
+  - name: X-Shopify-Storefront-Access-Token
+    value: "{{ _.storefront_access_token }}"
+    description: ""
+    id: pair_2
+authentication: {}
+metaSortKey: 5
+isPrivate: false
+settingStoreCookies: false
+settingSendCookies: false
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

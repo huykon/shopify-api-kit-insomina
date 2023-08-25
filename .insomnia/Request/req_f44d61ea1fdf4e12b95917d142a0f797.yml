@@ -1,0 +1,46 @@
+_id: req_f44d61ea1fdf4e12b95917d142a0f797
+type: Request
+parentId: fld_1eb126e2f0204ac4ae84486286555dbc
+modified: 1675455642
+created: 1675455642
+url: https://{{ _.base_url }}/api/{{ _.api_version }}/graphql.json
+name: Get available countries and currencies
+description: ""
+method: POST
+body:
+  mimeType: application/graphql
+  text: "{\"query\":\"# To present pricing in local currency enable the market of
+    the passed in country context within Markets.\\n# If the country is not
+    enabled in Markets the currency of the active localized experience will be
+    the store's default currency.\\n\\n# To present a localized language
+    experience enable it from Markets.\\n# If an alternate language is not
+    enabled for the passed in country context, the active language will be the
+    store's default.\\n\\nquery getCountriesAndCurrencies($country: CountryCode)
+    @inContext(country: $country) {\\n  localization {\\n\\t\\tlanguage{ #The
+    language of the active localized
+    experience.\\n\\t\\t\\tisoCode\\n\\t\\t\\tname\\n\\t\\t}\\n    availableCou\
+    ntries {\\n      currency
+    {\\n        isoCode\\n        name\\n        symbol\\n      }\\n      isoCo\
+    de\\n      name\\n      unitSystem\\n    }\\n    country { #The currency of
+    the active localized experience.\\n      currency
+    {\\n        isoCode\\n        name\\n        symbol\\n      }\\n      isoCo\
+    de\\n      name\\n      unitSystem\\n    }\\n  }\\n}\\n\",\"variables\":\"{\
+    \\n\\t\\\"country\\\": \\\"FR\\\"\\n}\\n\"}"
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1
+  - name: X-Shopify-Storefront-Access-Token
+    value: "{{ _.storefront_access_token }}"
+    description: ""
+    id: pair_2
+authentication: {}
+metaSortKey: 0
+isPrivate: false
+settingStoreCookies: false
+settingSendCookies: false
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

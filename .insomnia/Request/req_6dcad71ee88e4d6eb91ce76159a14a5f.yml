@@ -1,0 +1,42 @@
+_id: req_6dcad71ee88e4d6eb91ce76159a14a5f
+type: Request
+parentId: fld_c75b794f78644742b23a5f12128889e3
+modified: 1675455642
+created: 1675455642
+url: https://{{ _.base_url }}/api/{{ _.api_version }}/graphql.json
+name: Retrieve storefront visibilities
+description: ""
+method: POST
+body:
+  mimeType: application/graphql
+  text: '{"query":"# To retrieve a list of MetafieldStorefrontVisibility records
+    use the metafieldStorefrontVisibilities query available on the Admin API and
+    return a list of exposed metafield records.\n\n# Ensure you are calling the
+    Admin API https://shopify.dev/api/admin-graphql#endpoints with valid Admin
+    API credentials https://shopify.dev/api/admin-graphql#authentication when
+    retrieving a list of MetafieldStorefrontVisibility records.\n# For a
+    complete reference please consult
+    https://shopify.dev/api/admin-graphql/2022-10/queries/metafieldStorefrontVisibilities#top\n\nquery
+    getMetafieldStorefrontVisibilities($first: Int!, $namespace: String!)
+    {\n\tmetafieldStorefrontVisibilities(first: $first, namespace: $namespace)
+    {\n\t\tedges {\n\t\t\tnode {\n\t\t\t\tid # Metafield visibility record
+    id\n\t\t\t\tnamespace\n\t\t\t\tkey\n\t\t\t\tcreatedAt\n\t\t\t}\n\t\t}\n\t}\n}\n","variables":"{\n    \"first\":
+    5,\n    \"namespace\": \"garment_care\"\n}\n"}'
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1
+  - name: X-Shopify-Storefront-Access-Token
+    value: "{{ _.storefront_access_token }}"
+    description: ""
+    id: pair_2
+authentication: {}
+metaSortKey: 2
+isPrivate: false
+settingStoreCookies: false
+settingSendCookies: false
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

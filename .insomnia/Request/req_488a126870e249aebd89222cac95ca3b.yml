@@ -1,0 +1,47 @@
+_id: req_488a126870e249aebd89222cac95ca3b
+type: Request
+parentId: fld_e078e6879f9545ad9dd1d98ba2c6fd2b
+modified: 1675455642
+created: 1675455642
+url: https://{{ _.base_url }}/api/{{ _.api_version }}/graphql.json
+name: Add cart lines
+description: ""
+method: POST
+body:
+  mimeType: application/graphql
+  text: '{"query":"# This mutation adds lines to existing cart, returns the
+    quantity and product id. This mutation also accepts sellingPlanId \nmutation
+    addCartLines($cartId: ID!, $lines: [CartLineInput!]!)
+    {\n  cartLinesAdd(cartId: $cartId, lines: $lines) {\n    cart
+    {\n    id\n        lines(first:
+    10){\n            edges\n            {\n                node{\n                    quantity\n                    merchandise{\n                        ...
+    on ProductVariant
+    {   \t\t\t\t\t\t\n                            id\n                        }\n                    }\n                }\n            }\n        }\n        cost
+    {\n        totalAmount
+    {\n          amount\n          currencyCode\n        }\n        subtotalAmount
+    {\n          amount\n          currencyCode\n        }\n        totalTaxAmount
+    {\n          amount\n          currencyCode\n        }\n        totalDutyAmount
+    {\n          amount\n          currencyCode\n        }\n      }   \n}\n\n\n    userErrors
+    {\n      field\n      message\n    }\n  }\n}\n","variables":"{\n\t\"cartId\":
+    \"gid://shopify/Cart/e623277ec9e65c98f583268f06900ce7\",\n\t\"lines\":
+    {\n\t\t\"merchandiseId\":
+    \"gid://shopify/ProductVariant/40993523892280\",\n\t\t\"quantity\":
+    3\n\t}\n}"}'
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1
+  - name: X-Shopify-Storefront-Access-Token
+    value: "{{ _.storefront_access_token }}"
+    description: ""
+    id: pair_2
+authentication: {}
+metaSortKey: 9
+isPrivate: false
+settingStoreCookies: false
+settingSendCookies: false
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

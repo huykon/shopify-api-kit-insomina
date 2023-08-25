@@ -1,0 +1,38 @@
+_id: req_235543492392406fb5fd885a25e1ba5e
+type: Request
+parentId: fld_b3fc7b73023043cfb6bc2aab995a8cfc
+modified: 1675455642
+created: 1675455642
+url: https://{{ _.base_url }}/api/{{ _.api_version }}/graphql.json
+name: Get nearest pickup locations
+description: ""
+method: POST
+body:
+  mimeType: application/graphql
+  text: '{"query":"# This query will return the first 5 shop locations that
+    support in-store pickup. The `near` parameter is used to sort results based
+    on proximity to the provided location. Results could also be sorted by city,
+    location id, or location name by using CITY, ID, or NAME respectively as the
+    sortKey.\n\nquery getNearestPickupLocations($location: GeoCoordinateInput!)
+    {\n  locations(near:$location, first: 5, sortKey: DISTANCE) {\n    edges
+    {\n      node {\n        id\n        name\n        address
+    {\n          formatted\n        }\n      }\n    }\n  }\n}\n","variables":"{\n  \"location\":
+    {\n    \"latitude\": 45.4553,\n    \"longitude\": -75.6973\n  }\n}"}'
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1
+  - name: X-Shopify-Storefront-Access-Token
+    value: "{{ _.storefront_access_token }}"
+    description: ""
+    id: pair_2
+authentication: {}
+metaSortKey: 1
+isPrivate: false
+settingStoreCookies: false
+settingSendCookies: false
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

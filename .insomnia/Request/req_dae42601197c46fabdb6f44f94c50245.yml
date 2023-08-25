@@ -1,0 +1,47 @@
+_id: req_dae42601197c46fabdb6f44f94c50245
+type: Request
+parentId: fld_9fcef2cd8b5e4d16bee551f869cf7e47
+modified: 1675455642
+created: 1675455642
+url: https://{{ _.base_url }}/api/{{ _.api_version }}/graphql.json
+name: Get product media
+description: ""
+method: POST
+body:
+  mimeType: application/graphql
+  text: '{"query":"\n# This query gets 3 products and their media; we use a
+    fragment here to specify the fields that we want to return for each possible
+    media type.\n# You cannot retrieve media for product variants with the
+    Storefront API, only products. You cannot upload media, add media to a
+    product, or delete media with the Storefront API, use the Admin API for
+    these tasks.\n#
+    https://shopify.dev/tutorials/manage-product-media-with-admin-api#retrieve-product-media-by-using-the-storefront-api\n\nquery
+    getProductMedia {\n  products(first: 3) {\n    edges
+    {\n      cursor\n      node
+    {\n        id\n        title\n        description\n        media(first: 10)
+    {\n        edges {\n          node
+    {\n            mediaContentType\n            alt\n            ...mediaFieldsByType\n          }\n        }\n      }\n      }\n    }\n  }\n}\n\nfragment
+    mediaFieldsByType on Media {\n  ...on ExternalVideo
+    {\n    id\n    host\n    originUrl\n  }\n  ...on MediaImage {\n    image
+    {\n      url\n    }\n  }\n  ...on Model3d {\n    sources
+    {\n      url\n      mimeType\n      format\n      filesize\n    }\n  }\n  ...on
+    Video {\n    sources
+    {\n      url\n      mimeType\n      format\n      height\n      width\n    }\n  }\n}\n"}'
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1
+  - name: X-Shopify-Storefront-Access-Token
+    value: "{{ _.storefront_access_token }}"
+    description: ""
+    id: pair_2
+authentication: {}
+metaSortKey: 4
+isPrivate: false
+settingStoreCookies: false
+settingSendCookies: false
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

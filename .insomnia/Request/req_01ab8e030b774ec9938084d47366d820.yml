@@ -1,0 +1,40 @@
+_id: req_01ab8e030b774ec9938084d47366d820
+type: Request
+parentId: fld_9fcef2cd8b5e4d16bee551f869cf7e47
+modified: 1675455642
+created: 1675455642
+url: https://{{ _.base_url }}/api/{{ _.api_version }}/graphql.json
+name: Get 3 products and 3 variants
+description: ""
+method: POST
+body:
+  mimeType: application/graphql
+  text: '{"query":"\n# This query gets the products connection, which is available
+    from the QueryRoot, and asks for the first 3 products.\n# It selects edges,
+    the node, and fields from each of the returned product objects.\n# Since
+    products also have a variants connection, we repeat a similar process to get
+    information on the first 3 variants on each of those products.\n\n\nquery
+    getProductsAndVariants {\n  products(first: 3) {\n    edges
+    {\n      cursor\n      node
+    {\n        id\n        title\n        description\n        handle\n        variants(first:
+    3) {\n          edges {\n            cursor\n            node
+    {\n              id\n              title\n              quantityAvailable\n              price
+    {\n                amount\n                currencyCode\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"}'
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1
+  - name: X-Shopify-Storefront-Access-Token
+    value: "{{ _.storefront_access_token }}"
+    description: ""
+    id: pair_2
+authentication: {}
+metaSortKey: 0
+isPrivate: false
+settingStoreCookies: false
+settingSendCookies: false
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

@@ -1,0 +1,35 @@
+_id: req_8e468c85d5e14c499f866b84bacf7406
+type: Request
+parentId: fld_38488706918545bb8a8de057d183650d
+modified: 1675455642
+created: 1675455642
+url: https://{{ _.base_url }}/api/{{ _.api_version }}/graphql.json
+name: Get collections
+description: ""
+method: POST
+body:
+  mimeType: application/graphql
+  text: '{"query":"# Simple query to return the first 10 collections in the
+    shop.\n\n# Since a shop can contain multiple collections, pagination is
+    required.\n\nquery getCollections {\n  collections(first: 10) {\n    edges
+    {\n      cursor\n      node
+    {\n        id\n        handle\n      }\n    }\n    pageInfo
+    {\n      hasNextPage\n      hasPreviousPage\n    }\n  }\n}\n"}'
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1
+  - name: X-Shopify-Storefront-Access-Token
+    value: "{{ _.storefront_access_token }}"
+    description: ""
+    id: pair_2
+authentication: {}
+metaSortKey: 0
+isPrivate: false
+settingStoreCookies: false
+settingSendCookies: false
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

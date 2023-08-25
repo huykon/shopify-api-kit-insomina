@@ -1,0 +1,42 @@
+_id: req_6f09104a96cf407a8ea5348b0502193d
+type: Request
+parentId: fld_df3c412dfc7f4ec49f63a8f8d5f2c8ed
+modified: 1675455642
+created: 1675455642
+url: https://{{ _.base_url }}/api/{{ _.api_version }}/graphql.json
+name: Get blog by handle
+description: ""
+method: POST
+body:
+  mimeType: application/graphql
+  text: "{\"query\":\"# The blog object is an blog published to the online store
+    channel.\\n\\n# Each store can have multiple blogs, and each blog can have
+    many articles (blog posts).\\n\\n# This query fetches a specific blog by
+    it's handle and returns the blog along with it's associated articles.\\n\\n#
+    Blogs are meant to be used as a type of magazine or newsletter for the shop,
+    with content that changes over time.\\n\\n# If your shop needs a static page
+    (such as an \\\"About Us\\\" page), we recommend that you use a Page
+    instead.\\n\\nquery getBlogByHandle($handle: String!) {\\n\\tblog(handle:
+    $handle) {\\n\\t\\tid\\n\\t\\ttitle\\n\\t\\tarticles(first: 5)
+    {\\n\\t\\t\\tedges {\\n\\t\\t\\t\\tnode
+    {\\n\\t\\t\\t\\t\\tid\\n\\t\\t\\t\\t\\ttitle\\n\\t\\t\\t\\t}\\n\\t\\t\\t}\\n\
+    \\t\\t}\\n\\t}\\n}\\n\",\"variables\":\"{\\n\\t\\\"handle\\\":
+    \\\"my-blog\\\"\\n}\\n\"}"
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1
+  - name: X-Shopify-Storefront-Access-Token
+    value: "{{ _.storefront_access_token }}"
+    description: ""
+    id: pair_2
+authentication: {}
+metaSortKey: 1
+isPrivate: false
+settingStoreCookies: false
+settingSendCookies: false
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

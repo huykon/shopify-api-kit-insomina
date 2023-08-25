@@ -1,0 +1,37 @@
+_id: req_4932d70d6fb94d22859968c1aae6cfb7
+type: Request
+parentId: fld_e078e6879f9545ad9dd1d98ba2c6fd2b
+modified: 1675455642
+created: 1675455642
+url: https://{{ _.base_url }}/api/{{ _.api_version }}/graphql.json
+name: Update cart note
+description: ""
+method: POST
+body:
+  mimeType: application/graphql
+  text: '{"query":"# Updates cart note, returns cart id and note. Notes are
+    similiar to cart attributes in that they contain additional info about an
+    order. However, notes can be a string whereas attributes require key/value
+    pairs. \nmutation updateCartNote($cartId: ID!) {\n  cartNoteUpdate(cartId:
+    $cartId) {\n    cart {\n        id\n        note\n\n    }\n    userErrors
+    {\n      field\n      message\n    }\n  }\n}","variables":"{\n\t\"cartId\":
+    \"gid://shopify/Cart/50b74bf9dc2bc7a410053b5ffb31ba51\",\n\t\"note\": \"This
+    is a test note\"\n}"}'
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1
+  - name: X-Shopify-Storefront-Access-Token
+    value: "{{ _.storefront_access_token }}"
+    description: ""
+    id: pair_2
+authentication: {}
+metaSortKey: 7
+isPrivate: false
+settingStoreCookies: false
+settingSendCookies: false
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

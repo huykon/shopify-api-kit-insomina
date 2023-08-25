@@ -1,0 +1,41 @@
+_id: req_929e33c458244a55902546dd591fbb39
+type: Request
+parentId: fld_735312485f234f7bac4acb5cc90e3e34
+modified: 1675455642
+created: 1675455642
+url: https://{{ _.base_url }}/api/{{ _.api_version }}/graphql.json
+name: Create an access token
+description: ""
+method: POST
+body:
+  mimeType: application/graphql
+  text: '{"query":"# The Storefront API allows access to a customer’s addresses,
+    orders and metafields. To access customers, an app must have
+    unauthenticated_read_customers access scope.\n\n# To query a customer, a
+    customerAccessToken is required. This is obtained via the
+    customerAccessTokenCreate mutation which exchanges a user’s email address
+    and password for an access token.\n\nmutation
+    customerAccessTokenCreate($input: CustomerAccessTokenCreateInput!)
+    {\n  customerAccessTokenCreate(input: $input) {\n    customerAccessToken
+    {\n      accessToken\n      expiresAt\n    }\n    customerUserErrors
+    {\n      code\n      field\n      message\n    }\n  }\n}\n","variables":"{\n  \"input\":
+    {\n    \"email\": \"user@example.com\",\n    \"password\":
+    \"HiZqFuDvDdQ7\"\n  }\n}"}'
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1
+  - name: X-Shopify-Storefront-Access-Token
+    value: "{{ _.storefront_access_token }}"
+    description: ""
+    id: pair_2
+authentication: {}
+metaSortKey: 0
+isPrivate: false
+settingStoreCookies: false
+settingSendCookies: false
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

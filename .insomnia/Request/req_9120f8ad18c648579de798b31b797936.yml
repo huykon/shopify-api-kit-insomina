@@ -1,0 +1,55 @@
+_id: req_9120f8ad18c648579de798b31b797936
+type: Request
+parentId: fld_c75b794f78644742b23a5f12128889e3
+modified: 1675455642
+created: 1675455642
+url: https://{{ _.base_url }}/api/{{ _.api_version }}/graphql.json
+name: Retrieve metafields
+description: ""
+method: POST
+body:
+  mimeType: application/graphql
+  text: "{\"query\":\"# Once a metafield has been exposed it can be retrieved
+    using the Storefront API. In order to retrieve a single metafield, specify
+    the namespace and key arguments.\\n# To query for a list of metafields pass
+    the identifiers argument again specifying namespace and key\\n# For more
+    information please consult
+    https://shopify.dev/custom-storefronts/products-collections/metafields#step\
+    -2-retrieve-metafields\\n\\n# The following example retrieves a specific
+    metafield and a list of metafields that match the supplied namespace and key
+    and collection id.\\n# Ensure that you've added a value to any metafields
+    you wish to query back by updating it using Admin API
+    https://shopify.dev/apps/metafields/manage-metafields#step-3-update-a-metaf\
+    ield\\n\\nquery getCollectionMetaField(\\n\\t$id: ID!\\n\\t$namespace:
+    String!\\n\\t$key: String!\\n\\t$another_namespace:
+    String!\\n\\t$another_key: String!\\n) {\\n\\tcollection(id: $id)
+    {\\n\\t\\tmetafield(namespace: $namespace, key: $key)
+    {\\n\\t\\t\\tkey\\n\\t\\t\\tnamespace\\n\\t\\t\\tvalue\\n\\t\\t\\tid #
+    metafield id\\n\\t\\t}\\n\\t}\\n\\n\\tcollection(id: $id)
+    {\\n\\t\\tmetafields(\\n\\t\\t\\tidentifiers: [\\n\\t\\t\\t\\t{ namespace:
+    $namespace, key: $key },\\n\\t\\t\\t\\t{ namespace: $another_namespace, key:
+    $another_key }\\n\\t\\t\\t]\\n\\t\\t)
+    {\\n\\t\\t\\tkey\\n\\t\\t\\tnamespace\\n\\t\\t\\tvalue\\n\\t\\t\\tid #
+    metafield id\\n\\t\\t}\\n\\t}\\n}\\n\",\"variables\":\"{\\n\\t\\\"id\\\":
+    \\\"gid://shopify/Collection/288378781858\\\",\\n\\t\\\"namespace\\\":
+    \\\"garment_care\\\",\\n\\t\\\"key\\\":
+    \\\"wash_temperature\\\",\\n\\t\\\"another_namespace\\\":
+    \\\"bakery\\\",\\n\\t\\\"another_key\\\": \\\"ingredients-new\\\"\\n}\\n\"}"
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1
+  - name: X-Shopify-Storefront-Access-Token
+    value: "{{ _.storefront_access_token }}"
+    description: ""
+    id: pair_2
+authentication: {}
+metaSortKey: 1
+isPrivate: false
+settingStoreCookies: false
+settingSendCookies: false
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

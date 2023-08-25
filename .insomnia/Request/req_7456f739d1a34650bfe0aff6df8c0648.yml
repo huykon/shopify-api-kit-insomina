@@ -1,0 +1,37 @@
+_id: req_7456f739d1a34650bfe0aff6df8c0648
+type: Request
+parentId: fld_735312485f234f7bac4acb5cc90e3e34
+modified: 1675455642
+created: 1675455642
+url: https://{{ _.base_url }}/api/{{ _.api_version }}/graphql.json
+name: Recover customer
+description: ""
+method: POST
+body:
+  mimeType: application/graphql
+  text: '{"query":"# This mutation will send a email to customer to reset password
+    of the customer account.\n\n# Note that this mutation is throttled by IP. if
+    you are using authenticated access, you can pass a
+    Shopify-Storefront-Buyer-IP header to enable the IP based throttling that
+    will protect your app from any single user, such as a bot, consuming too
+    much capacity.\n\nmutation recoverCustomerAccount($email: String!)
+    {\n  customerRecover(email: $email) {\n    customerUserErrors
+    {\n      code\n      field\n      message\n    }\n  }\n}\n\n\n","variables":"{\n\t\"email\":\"example@example.com\"\n}"}'
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1
+  - name: X-Shopify-Storefront-Access-Token
+    value: "{{ _.storefront_access_token }}"
+    description: ""
+    id: pair_2
+authentication: {}
+metaSortKey: 6
+isPrivate: false
+settingStoreCookies: false
+settingSendCookies: false
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

@@ -1,0 +1,43 @@
+_id: req_6e092ce519f647f389b9d1c7418b0e1f
+type: Request
+parentId: fld_735312485f234f7bac4acb5cc90e3e34
+modified: 1675455642
+created: 1675455642
+url: https://{{ _.base_url }}/api/{{ _.api_version }}/graphql.json
+name: Create customer address
+description: ""
+method: POST
+body:
+  mimeType: application/graphql
+  text: '{"query":"# To query a customer, a customerAccessToken is required. This
+    is obtained via the customerAccessTokenCreate mutation which exchanges a
+    user’s email address and password for an access token.\n\n# This request
+    will create a new address that appends to the current address array of the
+    customer record.\n\nmutation customerAddressCreate($customerAccessToken:
+    String!, $address: MailingAddressInput!)
+    {\n  customerAddressCreate(customerAccessToken: $customerAccessToken,
+    address: $address) {\n    customerUserErrors
+    {\n      code\n      field\n      message\n    }\n    customerAddress
+    {\n      id\n    }\n  }\n}","variables":"{\n\t\"customerAccessToken\":
+    \"7cd6d36137f41d57bb8e85ae0d178d60\",\n\t\"address\": {\n\t\t\"lastName\":
+    \"Smith\",\n\t\t\"firstName\": \"Mary\",\n\t\t\"address1\": \"123 Test
+    Street\",\n\t\t\"province\": \"ON\",\n\t\t\"country\":
+    \"Canada\",\n\t\t\"zip\": \"M5T1G4\",\n\t\t\"city\": \"Toronto\"\n\t}\n}"}'
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1
+  - name: X-Shopify-Storefront-Access-Token
+    value: "{{ _.storefront_access_token }}"
+    description: ""
+    id: pair_2
+authentication: {}
+metaSortKey: 8
+isPrivate: false
+settingStoreCookies: false
+settingSendCookies: false
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

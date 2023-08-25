@@ -1,0 +1,38 @@
+_id: req_97c1b2b87b484e6bb651721a8bea4d92
+type: Request
+parentId: fld_735312485f234f7bac4acb5cc90e3e34
+modified: 1675455642
+created: 1675455642
+url: https://{{ _.base_url }}/api/{{ _.api_version }}/graphql.json
+name: Create customer
+description: ""
+method: POST
+body:
+  mimeType: application/graphql
+  text: '{"query":"# This mutation will create a customer account with password
+    for the customer to login.\n\nmutation createCustomerAccount($input:
+    CustomerCreateInput!) {\n  customerCreate(input: $input) {\n    customer
+    {\n      id\n      email\n      firstName\n      lastName\n      phone\n    }\n    customerUserErrors
+    {\n      code\n      field\n      message\n    }\n  }\n}\n","variables":"{\n    \"input\":
+    {\n      \"acceptsMarketing\": true,\n      \"email\":
+    \"example@example.com\",\n      \"firstName\":
+    \"John\",\n      \"lastName\": \"Smith\",\n      \"password\":
+    \"qwerty12345\",\n      \"phone\": \"+64213444048\"\n    }\n  }\n"}'
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1
+  - name: X-Shopify-Storefront-Access-Token
+    value: "{{ _.storefront_access_token }}"
+    description: ""
+    id: pair_2
+authentication: {}
+metaSortKey: 4
+isPrivate: false
+settingStoreCookies: false
+settingSendCookies: false
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

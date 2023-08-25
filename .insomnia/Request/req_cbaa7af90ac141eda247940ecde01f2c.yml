@@ -1,0 +1,39 @@
+_id: req_cbaa7af90ac141eda247940ecde01f2c
+type: Request
+parentId: fld_df3c412dfc7f4ec49f63a8f8d5f2c8ed
+modified: 1675455642
+created: 1675455642
+url: https://{{ _.base_url }}/api/{{ _.api_version }}/graphql.json
+name: Get shop policies
+description: ""
+method: POST
+body:
+  mimeType: application/graphql
+  text: '{"query":"\n# The ShopPolicy object represents a policy that a merchant
+    has configured for their store, such as their refund or privacy policy.\n\n#
+    This query displays the different shop policies that can be returned using
+    the Storefront API.\n\nquery getShopPolicies {\n\tshop {\n\t\tprivacyPolicy
+    {\n\t\t\tid\n\t\t\tbody # Policy text, maximum size of
+    64kb.\n\t\t\ttitle\n\t\t}\n\t\trefundPolicy
+    {\n\t\t\tid\n\t\t\tbody\n\t\t\ttitle\n\t\t}\n\t\tshippingPolicy
+    {\n\t\t\tid\n\t\t\tbody\n\t\t\ttitle\n\t\t}\n\t\ttermsOfService
+    {\n\t\t\tid\n\t\t\tbody\n\t\t\ttitle\n\t\t}\n\t\tsubscriptionPolicy
+    {\n\t\t\tid\n\t\t\tbody\n\t\t\ttitle\n\t\t}\n\t}\n}\n\n"}'
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1
+  - name: X-Shopify-Storefront-Access-Token
+    value: "{{ _.storefront_access_token }}"
+    description: ""
+    id: pair_2
+authentication: {}
+metaSortKey: 0
+isPrivate: false
+settingStoreCookies: false
+settingSendCookies: false
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

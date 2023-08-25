@@ -1,0 +1,46 @@
+_id: req_deba5ac33cdf4701b547f1ae0ba5b51e
+type: Request
+parentId: fld_b3fc7b73023043cfb6bc2aab995a8cfc
+modified: 1692952220652
+created: 1675455642
+url: https://{{ _.base_url }}/api/{{ _.api_version }}/graphql.json
+name: Get preferred pickup location availability
+description: ""
+method: POST
+body:
+  mimeType: application/graphql
+  text: "{\"query\":\"# Before sending this request, please make sure your app has
+    unauthenticated_read_product_pickup_locations scope.\\n\\n# This query will
+    return in-store pickup locations that have the product stocked, sorted by
+    proximity to a buyers preferred store pickup location. The buyer's preferred
+    pickup location is passed as the `preferredLocationId` argument.\\n\\nquery
+    getPreferredStoreAvailability ($preferredLocationId: ID, $handle:
+    String!,$selectedOptions:
+    [SelectedOptionInput!]!)@inContext(preferredLocationId:
+    $preferredLocationId) {\\n  product(handle: $handle)
+    {\\n    variantBySelectedOptions(selectedOptions: $selectedOptions)
+    {\\n      storeAvailability(first: 1) {\\n        edges {\\n          node
+    {\\n            available\\n            pickUpTime\\n            location
+    {\\n              name\\n            }\\n          }\\n        }\\n      }\
+    \\n    }\\n  }\\n}\",\"operationName\":\"getPreferredStoreAvailability\",\"\
+    variables\":{\"preferredLocationId\":\"gid://shopify/Location/90092667158\",\
+    \"handle\":\"the-complete-snowboard\",\"selectedOptions\":{\"name\":\"Color\
+    \",\"value\":\"Ice\"}}}"
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1
+  - name: X-Shopify-Storefront-Access-Token
+    value: "{{ _.storefront_access_token }}"
+    description: ""
+    id: pair_2
+authentication: {}
+metaSortKey: 2
+isPrivate: false
+settingStoreCookies: false
+settingSendCookies: false
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

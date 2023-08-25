@@ -1,0 +1,51 @@
+_id: req_74e975f572564f39811585eb62a2a11b
+type: Request
+parentId: fld_1eb126e2f0204ac4ae84486286555dbc
+modified: 1675455642
+created: 1675455642
+url: https://{{ _.base_url }}/api/{{ _.api_version }}/graphql.json
+name: Create cart in local context
+description: ""
+method: POST
+body:
+  mimeType: application/graphql
+  text: '{"query":"# Generates a cart in the currency and language of the context
+    passed in.\n# Requires that the country passed be enabled in Markets and
+    that the language passed in is enabled for that market.\n\nmutation
+    cartCreate($cartInput: CartInput!, $country: CountryCode, $language:
+    LanguageCode)@inContext(country: $country, language:
+    $language){\n\tcartCreate(input: $cartInput) {\n\t\tuserErrors
+    {\n\t\t\tcode\n\t\t\tmessage\n\t\t}\n\t\tcart {\n\t\t\tid\n\t\t\tcheckoutUrl
+    #URL for cart in local currency and language passed in\n\t\t\tlines(first:
+    50) {\n\t\t\t\tedges {\n\t\t\t\t\tnode
+    {\n\t\t\t\t\t\tid\n\t\t\t\t\t\tmerchandise {\n\t\t\t\t\t\t\t... on
+    ProductVariant {\n\t\t\t\t\t\t\t\ttitle\n\t\t\t\t\t\t\t\tproduct
+    {\n\t\t\t\t\t\t\t\t\ttitle\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\tid\n\t\t\t\t\t\t\t\tquantityAvailable\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\tcost
+    {\n\t\t\t\tsubtotalAmount {\n\t\t\t\t\tamount #active local
+    currency\n\t\t\t\t\tcurrencyCode\n\t\t\t\t}\n\t\t\t\ttotalAmount
+    {\n\t\t\t\t\tamount #active local
+    currency\n\t\t\t\t\tcurrencyCode\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\n","variables":"{\n\t\"cartInput\":
+    {\n\t\t\"lines\": [\n\t\t\t{\n\t\t\t\t\"quantity\":
+    3,\n\t\t\t\t\"merchandiseId\":
+    \"gid://shopify/ProductVariant/42485059584162\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"quantity\":
+    1,\n\t\t\t\t\"merchandiseId\":
+    \"gid://shopify/ProductVariant/42790980223138\"\n\t\t\t}\n\t\t]\n\n\t},\n\t\"country\":
+    \"US\",\n\t\"language\": \"ES\"\n}\n"}'
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1
+  - name: X-Shopify-Storefront-Access-Token
+    value: "{{ _.storefront_access_token }}"
+    description: ""
+    id: pair_2
+authentication: {}
+metaSortKey: 4
+isPrivate: false
+settingStoreCookies: false
+settingSendCookies: false
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

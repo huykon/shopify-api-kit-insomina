@@ -1,0 +1,58 @@
+_id: req_c372b4063c6f49a687464622ee43c433
+type: Request
+parentId: fld_c75b794f78644742b23a5f12128889e3
+modified: 1692951554242
+created: 1675455642
+url: https://{{ _.base_url }}/api/{{ _.api_version }}/graphql.json
+name: Expose metafield to SFAPI
+description: ""
+method: POST
+body:
+  mimeType: application/graphql
+  text: '{"query":"# Metafields allow merchants to store additional information
+    for Shopify resources including:\n# - Products\n# - Collections\n# -
+    Customers\n# - Blogs\n# - Pages\n# - Shop\n# - Discounts\n# - Draft
+    Orders\n# - Locations\n# - Orders\n# - Product Images\n# - Product
+    Variants\n\n# For a complete list please consult
+    https://shopify.dev/api/admin-graphql/2022-10/enums/MetafieldOwnerType\n\n#
+    Unlike the Admin API, metafields must first be made visible to the
+    Storefront API.\n# To make metafields visible to the Storefront API use the
+    Shopify Admin API mutation metafieldStorefrontVisibilityCreate.\n\n# Ensure
+    you are calling the Admin API
+    https://shopify.dev/api/admin-graphql#endpoints with valid Admin API
+    credentials https://shopify.dev/api/admin-graphql#authentication when
+    exposing metafields to the Storefront API.\n\n# For more information on the
+    metafieldStorefrontVisibilityCreate mutation consult the Shopify Admin API
+    doc
+    https://shopify.dev/docs/admin-api/graphql/reference/metafields/metafieldstorefrontvisibilitycreate\n\n#
+    For a complete Storefront API metafield reference please consult the
+    metafield tutorial at\n#
+    https://shopify.dev/tutorials/retrieve-metafields-with-storefront-api#expose-metafields-to-the-storefront-api\n\nmutation
+    createMetafieldStorefrontVisibility(\n\t$input:
+    MetafieldStorefrontVisibilityInput!\n)
+    {\n\tmetafieldStorefrontVisibilityCreate(input: $input)
+    {\n\t\tmetafieldStorefrontVisibility {\n\t\t\tid #
+    MetafieldStorefrontVisibility record id\n\t\t\tkey # Key must be unique
+    within this namespace on this
+    resource\n\t\t\townerType\n\t\t\tnamespace\n\t\t\tupdatedAt\n\t\t}\n\t\tuserErrors
+    {\n\t\t\tfield\n\t\t\tmessage\n\t\t}\n\t}\n}\n","variables":"{\n\t\"input\":
+    {\n\t\t\"key\": \"drying_instructions\",\n\t\t\"namespace\":
+    \"garment_care\",\n\t\t\"ownerType\": \"COLLECTION\"\n\t}\n}\n"}'
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1
+  - name: X-Shopify-Storefront-Access-Token
+    value: "{{ _.storefront_access_token }}"
+    description: ""
+    id: pair_2
+authentication: {}
+metaSortKey: 0
+isPrivate: false
+settingStoreCookies: false
+settingSendCookies: false
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

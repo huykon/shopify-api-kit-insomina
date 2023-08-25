@@ -1,0 +1,41 @@
+_id: req_b2a35267665a46b388346adc6e1351df
+type: Request
+parentId: fld_b3fc7b73023043cfb6bc2aab995a8cfc
+modified: 1692951711060
+created: 1675455642
+url: https://{{ _.base_url }}/api/{{ _.api_version }}/graphql.json
+name: Get pickup availability for variants
+description: ""
+method: POST
+body:
+  mimeType: application/graphql
+  text: '{"query":"# Before sending this request, please make sure your app has
+    unauthenticated_read_product_pickup_locations scope, and store pick up has
+    been enabled. For all the requirements please check this dev doc:
+    https://shopify.dev/custom-storefronts/products-collections/local-pickup#requirements\n\n#
+    You can also use \"id\" to replace \"handle\" as argument to query product.
+    \n\nquery getStoreAvailability($handle: String! $name: String!
+    $value:String!) {\n  product(handle:$handle)
+    {\n    variantBySelectedOptions(selectedOptions: {name: $name, value:
+    $value}) {\n      storeAvailability(first: 1) {\n        edges
+    {\n          node
+    {\n            available\n            pickUpTime\n            location
+    {\n              name\n            }\n          }\n        }\n      }\n    }\n  }\n}","operationName":"getStoreAvailability","variables":{"handle":"the-complete-snowboard","name":"Color","value":"Ice"}}'
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1
+  - name: X-Shopify-Storefront-Access-Token
+    value: "{{ _.storefront_access_token }}"
+    description: ""
+    id: pair_2
+authentication: {}
+metaSortKey: 0
+isPrivate: false
+settingStoreCookies: false
+settingSendCookies: false
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

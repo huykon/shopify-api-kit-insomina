@@ -1,0 +1,33 @@
+_id: req_8b6b16367f344037b3bb1fd0854ec82f
+type: Request
+parentId: fld_9fcef2cd8b5e4d16bee551f869cf7e47
+modified: 1675455642
+created: 1675455642
+url: https://{{ _.base_url }}/api/{{ _.api_version }}/graphql.json
+name: Get product types
+description: ""
+method: POST
+body:
+  mimeType: application/graphql
+  text: '{"query":"#  Returns product types. This query requires the
+    unauthenticated_read_product_listings scope, more info can be found here:
+    https://shopify.dev/api/usage/access-scopes\nquery getProductTypes
+    {\n  productTypes(first: 10) {\n\t\tedges{\n\t\t\tnode\n\t\t}\n  }\n}"}'
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1
+  - name: X-Shopify-Storefront-Access-Token
+    value: "{{ _.storefront_access_token }}"
+    description: ""
+    id: pair_2
+authentication: {}
+metaSortKey: 6
+isPrivate: false
+settingStoreCookies: false
+settingSendCookies: false
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

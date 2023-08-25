@@ -1,0 +1,10 @@
+_id: fld_e078e6879f9545ad9dd1d98ba2c6fd2b
+type: RequestGroup
+parentId: wrk_1767383cf0c94aa7b487192eda97b69f
+modified: 1675455642
+created: 1675455642
+name: Manage a cart
+description: ""
+environment: {}
+environmentPropertyOrder: null
+metaSortKey: 8

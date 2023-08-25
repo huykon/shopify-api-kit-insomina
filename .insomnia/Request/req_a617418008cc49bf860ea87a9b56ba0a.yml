@@ -1,0 +1,35 @@
+_id: req_a617418008cc49bf860ea87a9b56ba0a
+type: Request
+parentId: fld_e6ba30234f994f75be1fb04d5f3775b7
+modified: 1675455642
+created: 1675455642
+url: https://{{ _.base_url }}/api/{{ _.api_version }}/graphql.json
+name: How to use this repo
+description: ""
+method: POST
+body:
+  mimeType: application/graphql
+  text: "{\"query\":\"# To import the Insomnia package, first [download the latest
+    collection](builds/storefront-api-learning-kit-insomnia.json) (you'll need
+    to save the raw JSON file).\\n# From the Insomnia Dashboard screen, click
+    `Create`, followed by clicking `File`. Select the file you downloaded.\\n#
+    If you don't want to download the Insomnia package, the query examples are
+    listed out below. \"}"
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1
+  - name: X-Shopify-Storefront-Access-Token
+    value: "{{ _.storefront_access_token }}"
+    description: ""
+    id: pair_2
+authentication: {}
+metaSortKey: 1
+isPrivate: false
+settingStoreCookies: false
+settingSendCookies: false
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

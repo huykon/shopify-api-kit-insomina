@@ -1,0 +1,36 @@
+_id: req_b047972ad7f54c4f873dc29117b06318
+type: Request
+parentId: fld_1eb126e2f0204ac4ae84486286555dbc
+modified: 1675455642
+created: 1675455642
+url: https://{{ _.base_url }}/api/{{ _.api_version }}/graphql.json
+name: Get product prices
+description: ""
+method: POST
+body:
+  mimeType: application/graphql
+  text: '{"query":"query allProducts($country: CountryCode) @inContext(country:
+    $country) {\n  products(first: 1) {\n    edges {\n      node
+    {\n\t\t\t\ttitle\n        variants(first:1) {\n          edges
+    {\n            node {\n\t\t\t\t\t\t\ttitle\n              price
+    {\n                amount\n                currencyCode #active local
+    currency\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n","variables":"{\n\t\"country\":
+    \"CA\"\n}\n"}'
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1
+  - name: X-Shopify-Storefront-Access-Token
+    value: "{{ _.storefront_access_token }}"
+    description: ""
+    id: pair_2
+authentication: {}
+metaSortKey: 1
+isPrivate: false
+settingStoreCookies: false
+settingSendCookies: false
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

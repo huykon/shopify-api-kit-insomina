@@ -1,0 +1,48 @@
+_id: req_ac01e5461c0944109d2941bb3f334a42
+type: Request
+parentId: fld_e078e6879f9545ad9dd1d98ba2c6fd2b
+modified: 1675455642
+created: 1675455642
+url: https://{{ _.base_url }}/api/{{ _.api_version }}/graphql.json
+name: Update cart discount codes
+description: ""
+method: POST
+body:
+  mimeType: application/graphql
+  text: "{\"query\":\"# This mutation updates the discount codes applied to a
+    given cart and returns the cart id and discountCodes' 'code' and
+    'applicable' fields\\nmutation updateCartDiscountCodes($cartId: ID!,
+    $discountCodes: [String!] ) {\\n  cartDiscountCodesUpdate(cartId: $cartId,
+    discountCodes: $discountCodes) {\\n    cart
+    {\\n      id\\n        discountCodes{\\n            code\\n            appl\
+    icable\\n        }\\n         cost {\\n        totalAmount
+    {\\n          amount\\n          currencyCode\\n        }\\n        subtota\
+    lAmount
+    {\\n          amount\\n          currencyCode\\n        }\\n        totalTa\
+    xAmount
+    {\\n          amount\\n          currencyCode\\n        }\\n        totalDu\
+    tyAmount
+    {\\n          amount\\n          currencyCode\\n        }\\n      }   \\n    \
+    }\\n\\n    userErrors
+    {\\n      field\\n      message\\n    }\\n  }\\n}\",\"variables\":\"{\\n\\t\
+    \\\"cartId\\\":
+    \\\"gid://shopify/Cart/50b74bf9dc2bc7a410053b5ffb31ba51\\\",\\n\\t\\\"disco\
+    untCodes\\\": [\\n\\t\\t\\\"10_OFF\\\"\\n\\t]\\n}\"}"
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1
+  - name: X-Shopify-Storefront-Access-Token
+    value: "{{ _.storefront_access_token }}"
+    description: ""
+    id: pair_2
+authentication: {}
+metaSortKey: 5
+isPrivate: false
+settingStoreCookies: false
+settingSendCookies: false
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

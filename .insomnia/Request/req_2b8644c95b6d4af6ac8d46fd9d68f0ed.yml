@@ -1,0 +1,38 @@
+_id: req_2b8644c95b6d4af6ac8d46fd9d68f0ed
+type: Request
+parentId: fld_e6ba30234f994f75be1fb04d5f3775b7
+modified: 1675455642
+created: 1675455642
+url: https://{{ _.base_url }}/api/{{ _.api_version }}/graphql.json
+name: About this repo
+description: ""
+method: POST
+body:
+  mimeType: application/graphql
+  text: "{\"query\":\"# This repo provides example queries demonstrating how to
+    use Shopify's GraphQL [Storefront
+    API](https://shopify.dev/docs/storefront-api/getting-started). Downloading
+    the [Storefront API insomnia collection
+    package](builds/storefront-api-learning-kit-insomnia.json), gives you access
+    to a complete set of sample queries for use in the
+    [Insomnia](https://insomnia.rest/) http client. The Insomnia desktop app
+    comes with rich GraphQL features, including automatic schema fetching and
+    autocomplete, which are extremely valuable in learning a new API.\"}"
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1
+  - name: X-Shopify-Storefront-Access-Token
+    value: "{{ _.storefront_access_token }}"
+    description: ""
+    id: pair_2
+authentication: {}
+metaSortKey: 0
+isPrivate: false
+settingStoreCookies: false
+settingSendCookies: false
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

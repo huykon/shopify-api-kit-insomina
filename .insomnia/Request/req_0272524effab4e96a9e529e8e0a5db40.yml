@@ -1,0 +1,49 @@
+_id: req_0272524effab4e96a9e529e8e0a5db40
+type: Request
+parentId: fld_e078e6879f9545ad9dd1d98ba2c6fd2b
+modified: 1675455642
+created: 1675455642
+url: https://{{ _.base_url }}/api/{{ _.api_version }}/graphql.json
+name: Query a cart
+description: ""
+method: POST
+body:
+  mimeType: application/graphql
+  text: "{\"query\":\"# Query a cart by id and return some of the cart's objects.
+    See documentation here for comprehensive list:
+    https://shopify.dev/api/storefront/latest/queries/cart \\nquery
+    cartQuery($cartId: ID!) {\\n  cart(id: $cartId)
+    {\\n    id\\n    createdAt\\n    updatedAt\\n    checkoutUrl\\n    lines(fi\
+    rst: 10) {\\n      edges {\\n        node
+    {\\n          id\\n          quantity\\n          merchandise
+    {\\n            ... on ProductVariant
+    {\\n              id\\n            }\\n          }\\n          attributes
+    {\\n            key\\n            value\\n          }\\n        }\\n      }\
+    \\n    }\\n    attributes {\\n      key\\n      value\\n    }\\n    cost
+    {\\n      totalAmount
+    {\\n        amount\\n        currencyCode\\n      }\\n      subtotalAmount
+    {\\n        amount\\n        currencyCode\\n      }\\n      totalTaxAmount
+    {\\n        amount\\n        currencyCode\\n      }\\n      totalDutyAmount
+    {\\n        amount\\n        currencyCode\\n      }\\n    }\\n    buyerIden\
+    tity {\\n      email\\n      phone\\n      customer
+    {\\n        id\\n      }\\n      countryCode\\n    }\\n  }\\n}\\n\",\"varia\
+    bles\":\"{\\n  \\\"cartId\\\":
+    \\\"gid://shopify/Cart/50b74bf9dc2bc7a410053b5ffb31ba51\\\"\\n}\\n\"}"
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1
+  - name: X-Shopify-Storefront-Access-Token
+    value: "{{ _.storefront_access_token }}"
+    description: ""
+    id: pair_2
+authentication: {}
+metaSortKey: 1
+isPrivate: false
+settingStoreCookies: false
+settingSendCookies: false
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

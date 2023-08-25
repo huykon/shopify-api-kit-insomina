@@ -1,0 +1,41 @@
+_id: req_cd9fefdebc4c45b49884e2469a2bfa20
+type: Request
+parentId: fld_9fcef2cd8b5e4d16bee551f869cf7e47
+modified: 1675455642
+created: 1675455642
+url: https://{{ _.base_url }}/api/{{ _.api_version }}/graphql.json
+name: Get product by handle
+description: ""
+method: POST
+body:
+  mimeType: application/graphql
+  text: "{\"query\":\"\\n# This query gets a single product connection, available
+    from the QueryRoot, that matches the handle \\\"my-test-product\\\".\\n# As
+    only one product connection will be returned, we don't need to specify
+    edges, node, or cursor. This query can also be used to get a product by id
+    by replacing (handle: $handle) with (id: $id)\\n\\nquery getProductByHandle
+    {\\n  product(handle: \\\"my-test-product\\\")
+    {\\n    id\\n    title\\n    description\\n    variants(first: 3)
+    {\\n      edges {\\n        cursor\\n        node
+    {\\n          id\\n          title\\n          quantityAvailable\\n          \
+    price
+    {\\n            amount\\n            currencyCode\\n          }\\n        }\
+    \\n      }\\n    }\\n  }\\n}\\n\"}"
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1
+  - name: X-Shopify-Storefront-Access-Token
+    value: "{{ _.storefront_access_token }}"
+    description: ""
+    id: pair_2
+authentication: {}
+metaSortKey: 1
+isPrivate: false
+settingStoreCookies: false
+settingSendCookies: false
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

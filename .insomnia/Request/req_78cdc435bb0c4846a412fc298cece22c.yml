@@ -1,0 +1,56 @@
+_id: req_78cdc435bb0c4846a412fc298cece22c
+type: Request
+parentId: fld_38488706918545bb8a8de057d183650d
+modified: 1675455642
+created: 1675455642
+url: https://{{ _.base_url }}/api/{{ _.api_version }}/graphql.json
+name: Get products in collection
+description: ""
+method: POST
+body:
+  mimeType: application/graphql
+  text: "{\"query\":\"\\n# This query returns data from a single collection,
+    specified by the handle.\\n\\n# The data returned in the product connection
+    can be used to display a page of products.\\n\\n# The `products` connection
+    requires pagination in this query, since collections can contain a large
+    number of products.\\n# This query includes the `sortKey` argument on the
+    products connection, this returns products in the order specified by the
+    sortKey\\n\\n# Products can contain multiple images, so the `images`
+    connection requires pagination.\\n\\n# Since products can contain multiple
+    variants, we've asked the products connection to return price ranges.\\n\\n#
+    In this example we only want to display 1 image per product, so we're only
+    asking for first:1\\n\\nquery getProductsInCollection($handle: String!)
+    {\\n\\tcollection(handle: $handle)
+    {\\n\\t\\tid\\n\\t\\ttitle\\n\\t\\tproducts(first: 50, sortKey:
+    BEST_SELLING) {\\n\\t\\t\\tedges {\\n\\t\\t\\t\\tnode
+    {\\n\\t\\t\\t\\t\\tid\\n\\t\\t\\t\\t\\ttitle\\n\\t\\t\\t\\t\\tvendor\\n\\t\
+    \\t\\t\\t\\tavailableForSale\\n\\t\\t\\t\\t\\timages(first: 1)
+    {\\n\\t\\t\\t\\t\\t\\tedges {\\n\\t\\t\\t\\t\\t\\t\\tnode
+    {\\n\\t\\t\\t\\t\\t\\t\\t\\tid\\n\\t\\t\\t\\t\\t\\t\\t\\turl\\n\\t\\t\\t\\t\
+    \\t\\t\\t\\twidth\\n\\t\\t\\t\\t\\t\\t\\t\\theight\\n\\t\\t\\t\\t\\t\\t\\t\
+    \\taltText\\n\\t\\t\\t\\t\\t\\t\\t}\\n\\t\\t\\t\\t\\t\\t}\\n\\t\\t\\t\\t\\t}\
+    \\n\\t\\t\\t\\t\\tpriceRange { # Returns range of prices for a product in
+    the shop's currency.\\n\\t\\t\\t\\t\\t\\tminVariantPrice
+    {\\n\\t\\t\\t\\t\\t\\t\\tamount\\n\\t\\t\\t\\t\\t\\t\\tcurrencyCode\\n\\t\\t\
+    \\t\\t\\t\\t}\\n\\t\\t\\t\\t\\t\\tmaxVariantPrice
+    {\\n\\t\\t\\t\\t\\t\\t\\tamount\\n\\t\\t\\t\\t\\t\\t\\tcurrencyCode\\n\\t\\t\
+    \\t\\t\\t\\t}\\n\\t\\t\\t\\t\\t}\\n\\t\\t\\t\\t}\\n\\t\\t\\t}\\n\\t\\t}\\n\
+    \\t}\\n}\\n\",\"variables\":\"{\\n  \\\"handle\\\": \\\"all\\\"\\n}\\n\"}"
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1
+  - name: X-Shopify-Storefront-Access-Token
+    value: "{{ _.storefront_access_token }}"
+    description: ""
+    id: pair_2
+authentication: {}
+metaSortKey: 3
+isPrivate: false
+settingStoreCookies: false
+settingSendCookies: false
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

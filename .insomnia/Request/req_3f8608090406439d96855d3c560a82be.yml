@@ -1,0 +1,43 @@
+_id: req_3f8608090406439d96855d3c560a82be
+type: Request
+parentId: fld_735312485f234f7bac4acb5cc90e3e34
+modified: 1675455642
+created: 1675455642
+url: https://{{ _.base_url }}/api/{{ _.api_version }}/graphql.json
+name: Reset customer
+description: ""
+method: POST
+body:
+  mimeType: application/graphql
+  text: '{"query":"# This mutation is used to reset the customer account password.
+    After sending recoverCustomerAccount request, the customer will receive an
+    email with an account recovery url for resetting customer account. This url
+    will include the customer id and resetToken.\n# You can also use the url
+    directly to reset the customer account. See customerResetByUrl mutation
+    https://shopify.dev/api/storefront/2022-10/mutations/customerResetByUrl\n\nmutation
+    resetCustomerAccount($id: ID!, $input: CustomerResetInput!)
+    {\n  customerReset(id: $id, input: $input) {\n    customer
+    {\n      id\n      email\n      firstName\n      lastName\n      phone\n    }\n    customerAccessToken
+    {\n      accessToken\n      expiresAt\n    }\n    customerUserErrors
+    {\n      code\n      field\n      message\n    }\n  }\n}\n","variables":"{\n\t\"id\":
+    \"gid://shopify/Customer/5820694691862\",\n\t\"input\": {\n\t\t\"password\":
+    \"12345qwerty\",\n\t\t\"resetToken\":
+    \"2279f05aebbb8319553e46f2b71c88c7-1671131136\"\n\t}\n}"}'
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1
+  - name: X-Shopify-Storefront-Access-Token
+    value: "{{ _.storefront_access_token }}"
+    description: ""
+    id: pair_2
+authentication: {}
+metaSortKey: 7
+isPrivate: false
+settingStoreCookies: false
+settingSendCookies: false
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

@@ -1,0 +1,37 @@
+_id: req_cbb1b4668e8c4116bbdfec9bfe93e6ff
+type: Request
+parentId: fld_735312485f234f7bac4acb5cc90e3e34
+modified: 1675455642
+created: 1675455642
+url: https://{{ _.base_url }}/api/{{ _.api_version }}/graphql.json
+name: Get customer orders
+description: ""
+method: POST
+body:
+  mimeType: application/graphql
+  text: '{"query":"# To query a customer, a customerAccessToken is required. This
+    is obtained via the customerAccessTokenCreate mutation which exchanges a
+    user’s email address and password for an access token.\n\nquery
+    getCustomerOrders($customerAccessToken:
+    String!){\n  customer(customerAccessToken: $customerAccessToken)
+    {\n    id\n    orders(first:3) {\n      edges {\n        node
+    {\n          orderNumber\n        }\n      }\n    }\n  }\n}\n\n","variables":"{\n  \"customerAccessToken\":
+    \"d794063da4e26c9b1a8d7b77bdfd6862\"\n}"}'
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1
+  - name: X-Shopify-Storefront-Access-Token
+    value: "{{ _.storefront_access_token }}"
+    description: ""
+    id: pair_2
+authentication: {}
+metaSortKey: 1
+isPrivate: false
+settingStoreCookies: false
+settingSendCookies: false
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

@@ -1,0 +1,48 @@
+_id: req_611ce3dae5ac4475ac7ca0ab443c695d
+type: Request
+parentId: fld_38488706918545bb8a8de057d183650d
+modified: 1675455642
+created: 1675455642
+url: https://{{ _.base_url }}/api/{{ _.api_version }}/graphql.json
+name: Get all metafields for namespace in collection
+description: ""
+method: POST
+body:
+  mimeType: application/graphql
+  text: "{\"query\":\"# Uses the `collectionByHandle` query to specify a
+    collection by passing the handle.\\n\\n# Identifiers are used to identify
+    the metafields associated with the resource matching the supplied list of
+    namespaces and keys.\\n\\n# The `metafields` connection is using the
+    `namespace` argument to return only metafields in a specific
+    namespace.\\n\\n# Since collections can have a large number of metafields in
+    a given namespace, pagination is required on the `metafields`
+    connection.\\n\\n# By default, the Storefront API can't read metafields. To
+    make specific metafields visible in the Storefront API, you need to create a
+    MetafieldStorefrontVisibility record.\\n\\n# For more information please
+    consult
+    #https://shopify.dev/custom-storefronts/products-collections/metafields\\n\
+    \\nquery getCollectionMetafieldsByNamespace($handle: String! $namespace:
+    String!) {\\n  \\tcollection(handle: $handle)
+    {\\n\\t\\tid\\n\\t\\tmetafields(identifiers: [{ namespace: $namespace, key:
+    $key }])
+    {\\n\\t\\t\\tkey\\n\\t\\t\\tnamespace\\n\\t\\t\\tvalue\\n\\t\\t\\tid\\n\\t\
+    \\t}\\n\\t}\\n}\\n\",\"variables\":\"{\\n  \\\"handle\\\":
+    \\\"all\\\",\\n  \\\"namespace\\\": \\\"global\\\"\\n}\\n\"}"
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1
+  - name: X-Shopify-Storefront-Access-Token
+    value: "{{ _.storefront_access_token }}"
+    description: ""
+    id: pair_2
+authentication: {}
+metaSortKey: 4
+isPrivate: false
+settingStoreCookies: false
+settingSendCookies: false
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

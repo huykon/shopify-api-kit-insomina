@@ -1,0 +1,39 @@
+_id: req_cb40555c924f43939a1e492279868c26
+type: Request
+parentId: fld_696ac446cf304e3e8f213e7f94ade580
+modified: 1675455642
+created: 1675455642
+url: https://{{ _.base_url }}/api/{{ _.api_version }}/graphql.json
+name: Installing the headless channel
+description: ""
+method: POST
+body:
+  mimeType: application/graphql
+  text: "{\"query\":\"# To start using the Storefront API you'll need to enable
+    access by installing the __Headless__ channel on your store.\\n# To install,
+    you can follow the directions outlined here or get it from the [Shopify App
+    Store](https://apps.shopify.com/headless).\\n\\n# Installing the Headless
+    Channel from Shopify Admin\\n# 1. From your Shopify admin, click __Sales
+    channels__.\\n# 2. Click __Recommended sales channels__.\\n# 3. In the
+    __Picked for you modal__, scroll to the Build custom storefronts
+    section.\\n# 4. Within the __Headless: Build your own commerce stack__ card,
+    click __Add__.\\n# 5. Click __Add sales channel__.\\n# 6. Click __Create
+    storefront__.\\n\"}"
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1
+  - name: X-Shopify-Storefront-Access-Token
+    value: "{{ _.storefront_access_token }}"
+    description: ""
+    id: pair_2
+authentication: {}
+metaSortKey: 1
+isPrivate: false
+settingStoreCookies: false
+settingSendCookies: false
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

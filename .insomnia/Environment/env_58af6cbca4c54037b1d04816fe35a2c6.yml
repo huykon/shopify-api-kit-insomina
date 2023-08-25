@@ -1,0 +1,18 @@
+_id: env_58af6cbca4c54037b1d04816fe35a2c6
+type: Environment
+parentId: wrk_1767383cf0c94aa7b487192eda97b69f
+modified: 1692951975554
+created: 1622496642560
+name: Base Environment
+data:
+  base_url: let-me-dev.myshopify.com
+  api_version: 2023-07
+  storefront_access_token: 07b07268b838ee8f929dbf1ee8cd3dcc
+dataPropertyOrder:
+  "&":
+    - base_url
+    - api_version
+    - storefront_access_token
+color: null
+isPrivate: false
+metaSortKey: 1622496642560

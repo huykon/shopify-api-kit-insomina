@@ -1,0 +1,40 @@
+_id: req_9f9d3ae1f288493d86ebf4d07664145e
+type: Request
+parentId: fld_735312485f234f7bac4acb5cc90e3e34
+modified: 1675455642
+created: 1675455642
+url: https://{{ _.base_url }}/api/{{ _.api_version }}/graphql.json
+name: Update customer
+description: ""
+method: POST
+body:
+  mimeType: application/graphql
+  text: '{"query":"# To query a customer, a customerAccessToken is required. This
+    is obtained via the customerAccessTokenCreate mutation which exchanges a
+    user’s email address and password for an access token.\n\nmutation
+    customerUpdate($customerAccessToken: String!, $customer:
+    CustomerUpdateInput!) {\n  customerUpdate(customerAccessToken:
+    $customerAccessToken, customer: $customer) {\n    customer
+    {\n      id\n    }\n    customerAccessToken
+    {\n      accessToken\n      expiresAt\n    }\n    customerUserErrors
+    {\n      code\n      field\n      message\n    }\n  }\n}\n\n","variables":"{\n  \"customerAccessToken\":
+    \"d794063da4e26c9b1a8d7b77bdfd6862\",\n  \"customer\": {\n    \"phone\":
+    \"+61401425227\"\n  }\n}"}'
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1
+  - name: X-Shopify-Storefront-Access-Token
+    value: "{{ _.storefront_access_token }}"
+    description: ""
+    id: pair_2
+authentication: {}
+metaSortKey: 3
+isPrivate: false
+settingStoreCookies: false
+settingSendCookies: false
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

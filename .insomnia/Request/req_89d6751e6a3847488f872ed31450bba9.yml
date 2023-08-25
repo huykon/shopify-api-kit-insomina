@@ -1,0 +1,39 @@
+_id: req_89d6751e6a3847488f872ed31450bba9
+type: Request
+parentId: fld_c75b794f78644742b23a5f12128889e3
+modified: 1675455642
+created: 1675455642
+url: https://{{ _.base_url }}/api/{{ _.api_version }}/graphql.json
+name: Retrieve metaobject
+description: ""
+method: POST
+body:
+  mimeType: application/graphql
+  text: '{"query":"# The following example retreives a single metaobject by a
+    given metaobject id.\n# For more information consult Storefront API
+    documentation at
+    https://shopify.dev/api/storefront/2023-01/queries/metaobject\n\n\nquery
+    getMetaObject($id: ID!) { # A metaobject can be retrieved by handle or
+    id\n\tmetaobject(id: $id)
+    {\n\t\tid\n\t\ttype\n\t\tupdatedAt\n\t\thandle\n\n\t\tfields
+    {\n\t\t\tkey\n\t\t\tvalue\n\t\t\ttype\n\t\t}\n\n\t\tfields
+    {\n\t\t\tkey\n\t\t\tvalue\n\t\t\ttype\n\t\t}\n\t}\n}\n","variables":"{\n\t\"id\":
+    \"gid://shopify/Metaobject/819214\"\n}\n"}'
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1
+  - name: X-Shopify-Storefront-Access-Token
+    value: "{{ _.storefront_access_token }}"
+    description: ""
+    id: pair_2
+authentication: {}
+metaSortKey: 5
+isPrivate: false
+settingStoreCookies: false
+settingSendCookies: false
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

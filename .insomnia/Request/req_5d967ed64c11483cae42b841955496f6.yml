@@ -1,0 +1,70 @@
+_id: req_5d967ed64c11483cae42b841955496f6
+type: Request
+parentId: fld_c75b794f78644742b23a5f12128889e3
+modified: 1675455642
+created: 1675455642
+url: https://{{ _.base_url }}/api/{{ _.api_version }}/graphql.json
+name: Retrieve metaobjects
+description: ""
+method: POST
+body:
+  mimeType: application/graphql
+  text: "{\"query\":\"# Metaobjects are custom data structures introduced with
+    version 2023-01 that your app can define and create to store your app's
+    information.\\n# Similar to metafields, they can be associated with a
+    Shopify resource such as a product or a collection.\\n# However, they can
+    also exist on their own. Metaobjects provide you with a way to create
+    resources that Shopify doesn't offer out of the box.\\n\\n# In order to
+    query metaobjects with the Storefront API you must first create a metaobject
+    definition using the Admin API with the metaobjectDefinitionCreate
+    mutation\\n# and create a corresponding metaobject using the Admin API
+    mutation metaobjectCreate.\\n# For more information consult Shopify Admin
+    API docs at
+    https://shopify.dev/api/admin-graphql/2023-01/mutations/metaobjectDefinitio\
+    nCreate\\n# and
+    https://shopify.dev/api/admin-graphql/2023-01/mutations/metaobjectCreate\\n\
+    \\n# When creating a new metaobject definition to create new associated
+    metaobjects that you want to access using Storefront API, be sure to set
+    \\\"access\\\" for the \\\"storefront\\\" property to
+    \\\"PUBLIC_READ\\\".\\n# For more information about the
+    MetaObjectDefinitionCreateInput please see
+    https://shopify.dev/api/admin-graphql/2023-01/mutations/metaobjectDefinitio\
+    nCreate#field-metaobjectdefinitioncreateinput-access\\n# Ensure you are
+    calling the Admin API https://shopify.dev/api/admin-graphql#endpoints with
+    valid Admin API credentials
+    https://shopify.dev/api/admin-graphql#authentication\\n\\n# The following
+    example returns a list of the first ten metaobjects for a given type from
+    the Storefront API. As well as type, which is a required argument, either
+    first or last must be passed.\\n# Other optional arguments include reverse
+    and sortKey which determines whether to sort the returned list by
+    \\\"id\\\", \\\"type\\\", \\\"updated_at\\\", or \\\"display_name\\\".\\n#
+    For more information consult Storefront API documentation at
+    https://shopify.dev/api/storefront/2023-01/queries/metaobjects\\n\\nquery
+    getMetaObjects(\\n\\t$type: String!,\\n\\t$sortKey: String,\\n\\t$first:
+    Int,\\n\\t$reverse: Boolean\\n){\\n\\tmetaobjects(\\n\\t\\ttype:
+    $type,\\n\\t\\tsortKey: $sortKey,\\n\\t\\tfirst: $first,\\n\\t\\treverse:
+    $reverse\\n\\t) {\\n\\t\\tedges {\\n\\t\\t\\tnode
+    {\\n\\t\\t\\t\\tid\\n\\t\\t\\t\\tfields
+    {\\n\\t\\t\\t\\t\\tkey\\n\\t\\t\\t\\t\\tvalue\\n\\t\\t\\t\\t}\\n\\t\\t\\t\\\
+    thandle\\n\\t\\t\\t\\tupdatedAt\\n\\t\\t\\t\\ttype\\n\\t\\t\\t}\\n\\t\\t}\\n\
+    \\t}\\n}\\n\",\"variables\":\"{\\n    \\\"type\\\":
+    \\\"Product_Highlights\\\",\\n    \\\"sortKey\\\":
+    \\\"id\\\",\\n    \\\"first\\\": 10,\\n    \\\"reverse\\\": true\\n}\\n\"}"
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1
+  - name: X-Shopify-Storefront-Access-Token
+    value: "{{ _.storefront_access_token }}"
+    description: ""
+    id: pair_2
+authentication: {}
+metaSortKey: 4
+isPrivate: false
+settingStoreCookies: false
+settingSendCookies: false
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

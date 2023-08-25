@@ -1,0 +1,40 @@
+_id: req_ec337ad43f1c400bb0366646dc88d122
+type: Request
+parentId: fld_696ac446cf304e3e8f213e7f94ade580
+modified: 1675455642
+created: 1675455642
+url: https://{{ _.base_url }}/api/{{ _.api_version }}/graphql.json
+name: Configure your environment variables
+description: ""
+method: POST
+body:
+  mimeType: application/graphql
+  text: '{"query":"# Environment variables are JSON key-value pairs that allow you
+    to refer to values without having to write them out every time.\n\n# For the
+    tutorial, three environment variables will be utilized.\n\n# 1. `base_url`
+    will be the Shopify store being connected to.\n#   - If your store is
+    mydevstore.myshopify.com, enter “mydevstore.myshopify.com” here.\n# 2.
+    `api_version` is the Storefront API version used for the API
+    requests.\n#   - This can be changed to an earlier version or unstable
+    depending on your use case.\n# 3. `storefront_access_token` is used to
+    populate the X-Shopify-Storefront-Access-Token request header.\n#   - This
+    is the Public access token associated with the Storefront you created in the
+    \"Installing the Headless Channel\" section.\n"}'
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1
+  - name: X-Shopify-Storefront-Access-Token
+    value: "{{ _.storefront_access_token }}"
+    description: ""
+    id: pair_2
+authentication: {}
+metaSortKey: 2
+isPrivate: false
+settingStoreCookies: false
+settingSendCookies: false
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

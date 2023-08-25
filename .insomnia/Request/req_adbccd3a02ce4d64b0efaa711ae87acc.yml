@@ -1,0 +1,34 @@
+_id: req_adbccd3a02ce4d64b0efaa711ae87acc
+type: Request
+parentId: fld_38488706918545bb8a8de057d183650d
+modified: 1675455642
+created: 1675455642
+url: https://{{ _.base_url }}/api/{{ _.api_version }}/graphql.json
+name: Get collection by id
+description: ""
+method: POST
+body:
+  mimeType: application/graphql
+  text: '{"query":"# Query that returns details from a collection object by
+    passing the collection.id as an argument.\n\nquery getCollectionById($id:
+    ID!) {\n\tcollection(id: $id)
+    {\n\t\ttitle\n\t\tdescription\n                handle\n\t}\n}\n","variables":"{\n  \"id\":
+    \"gid://shopify/Collection/1\"\n}\n"}'
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1
+  - name: X-Shopify-Storefront-Access-Token
+    value: "{{ _.storefront_access_token }}"
+    description: ""
+    id: pair_2
+authentication: {}
+metaSortKey: 2
+isPrivate: false
+settingStoreCookies: false
+settingSendCookies: false
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

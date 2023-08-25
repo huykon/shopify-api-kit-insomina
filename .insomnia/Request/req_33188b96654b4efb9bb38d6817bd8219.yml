@@ -1,0 +1,46 @@
+_id: req_33188b96654b4efb9bb38d6817bd8219
+type: Request
+parentId: fld_e078e6879f9545ad9dd1d98ba2c6fd2b
+modified: 1675455642
+created: 1675455642
+url: https://{{ _.base_url }}/api/{{ _.api_version }}/graphql.json
+name: Update cart attributes
+description: ""
+method: POST
+body:
+  mimeType: application/graphql
+  text: "{\"query\":\"# Updates the attributes of a given cart. Cart attributes
+    are used to store info that isn't included in the existing cart fields. The
+    variables for this mutation provide an example of such a use case
+    i.e.  \\\"attributes\\\": {\\n#       \\\"key\\\":
+    \\\"gift_wrap\\\",\\n#       \\\"value\\\": \\\"true\\\"\\n#     }\\n# The
+    key/value can be passed as an object or objects in an array, but in either
+    case the update overwrites the existing attributes.\\nmutation
+    updateCartAttributes($attributes: [AttributeInput!]!, $cartId: ID!)
+    {\\n  cartAttributesUpdate(attributes: $attributes, cartId: $cartId)
+    {\\n    cart
+    {\\n        id\\n        attributes{\\n            key\\n            value\
+    \\n            }\\n        }\\n    userErrors
+    {\\n      field\\n      message\\n    }\\n  }\\n}\",\"variables\":\"{\\n    \
+    \\\"attributes\\\": {\\n      \\\"key\\\":
+    \\\"gift_wrap\\\",\\n      \\\"value\\\":
+    \\\"true\\\"\\n    },\\n    \\\"cartId\\\":
+    \\\"gid://shopify/Cart/50b74bf9dc2bc7a410053b5ffb31ba51\\\"\\n  }\"}"
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1
+  - name: X-Shopify-Storefront-Access-Token
+    value: "{{ _.storefront_access_token }}"
+    description: ""
+    id: pair_2
+authentication: {}
+metaSortKey: 6
+isPrivate: false
+settingStoreCookies: false
+settingSendCookies: false
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

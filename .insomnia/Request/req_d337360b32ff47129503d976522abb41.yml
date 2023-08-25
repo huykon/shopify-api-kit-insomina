@@ -1,0 +1,38 @@
+_id: req_d337360b32ff47129503d976522abb41
+type: Request
+parentId: fld_df3c412dfc7f4ec49f63a8f8d5f2c8ed
+modified: 1675455642
+created: 1675455642
+url: https://{{ _.base_url }}/api/{{ _.api_version }}/graphql.json
+name: Get page by handle
+description: ""
+method: POST
+body:
+  mimeType: application/graphql
+  text: "{\"query\":\"# The page object represents a custom page on the online
+    store.\\n\\n# Shopify merchants can create pages to hold static HTML content
+    such as an 'About Us' page.\\n\\n# This simple query fetches a page by it's
+    handle and returns the title and description of the page, complete with HTML
+    formatting.\\n\\nquery getPageByHandle($handle: String!) {\\n\\tpage(handle:
+    $handle) {\\n\\t\\tid\\n\\t\\ttitle\\n        body # The description of the
+    page, complete with HTML
+    formatting.\\n\\t}\\n}\\n\",\"variables\":\"{\\n\\t\\\"handle\\\":
+    \\\"my-page\\\"\\n}\\n\"}"
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1
+  - name: X-Shopify-Storefront-Access-Token
+    value: "{{ _.storefront_access_token }}"
+    description: ""
+    id: pair_2
+authentication: {}
+metaSortKey: 2
+isPrivate: false
+settingStoreCookies: false
+settingSendCookies: false
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

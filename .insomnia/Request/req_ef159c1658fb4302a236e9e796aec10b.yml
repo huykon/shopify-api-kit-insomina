@@ -1,0 +1,57 @@
+_id: req_ef159c1658fb4302a236e9e796aec10b
+type: Request
+parentId: fld_e078e6879f9545ad9dd1d98ba2c6fd2b
+modified: 1675455642
+created: 1675455642
+url: https://{{ _.base_url }}/api/{{ _.api_version }}/graphql.json
+name: Create a cart with one line item
+description: ""
+method: POST
+body:
+  mimeType: application/graphql
+  text: "{\"query\":\"# This mutation creates a cart and returns information about
+    the cart to ensure it's correct (id, lines, product variant id, etc) as well
+    as some information about the cart you may want (e.g. cost, subtotalAmount,
+    totalTaxAmount, totalDutyAmount). The checkoutUrl object contains the url of
+    the checkout for the created cart\\nmutation createCart($cartInput:
+    CartInput) {\\n  cartCreate(input: $cartInput) {\\n    cart
+    {\\n      id\\n      createdAt\\n      updatedAt\\n      checkoutUrl\\n      \
+    lines(first: 10) {\\n        edges {\\n          node
+    {\\n            id\\n            merchandise {\\n              ... on
+    ProductVariant
+    {\\n                id\\n              }\\n            }\\n          }\\n        \
+    }\\n      }\\n      attributes
+    {\\n        key\\n        value\\n      }\\n      cost
+    {\\n        totalAmount
+    {\\n          amount\\n          currencyCode\\n        }\\n        subtota\
+    lAmount
+    {\\n          amount\\n          currencyCode\\n        }\\n        totalTa\
+    xAmount
+    {\\n          amount\\n          currencyCode\\n        }\\n        totalDu\
+    tyAmount
+    {\\n          amount\\n          currencyCode\\n        }\\n      }\\n    }\
+    \\n  }\\n}\\n\",\"variables\":\"{\\n  \\\"cartInput\\\":
+    {\\n    \\\"lines\\\": [\\n      {\\n        \\\"quantity\\\":
+    1,\\n        \\\"merchandiseId\\\":
+    \\\"gid://shopify/ProductVariant/123\\\"\\n\\t\\t  }\\n\\t\\t],\\n\\t\\t\\\
+    \"attributes\\\": {\\n\\t\\t  \\\"key\\\":
+    \\\"cart_attribute_key\\\",\\n\\t\\t  \\\"value\\\": \\\"This is a cart
+    attribute value\\\"\\n    }\\n  }\\n}\\n\"}"
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1
+  - name: X-Shopify-Storefront-Access-Token
+    value: "{{ _.storefront_access_token }}"
+    description: ""
+    id: pair_2
+authentication: {}
+metaSortKey: 0
+isPrivate: false
+settingStoreCookies: false
+settingSendCookies: false
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

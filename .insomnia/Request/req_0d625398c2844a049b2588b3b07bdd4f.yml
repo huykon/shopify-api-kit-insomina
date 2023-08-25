@@ -1,0 +1,48 @@
+_id: req_0d625398c2844a049b2588b3b07bdd4f
+type: Request
+parentId: fld_e078e6879f9545ad9dd1d98ba2c6fd2b
+modified: 1675455642
+created: 1675455642
+url: https://{{ _.base_url }}/api/{{ _.api_version }}/graphql.json
+name: Update buyer identity
+description: ""
+method: POST
+body:
+  mimeType: application/graphql
+  text: '{"query":"# cartBuyerIdentityUpdate is used to associate customer info
+    with a cart and is used to determine international pricing. The below
+    example is updating the buyerIdentity and returning the info (email, phone,
+    delivery address preferences) to ensure that it updated correctly\nmutation
+    updateCartBuyerIdentity($buyerIdentity: CartBuyerIdentityInput!, $cartId:
+    ID!) {\n  cartBuyerIdentityUpdate(buyerIdentity: $buyerIdentity, cartId:
+    $cartId) {\n    cart {\n\t\t\tid\n\t\t\tbuyerIdentity
+    {\n\t\t\t\temail\n\t\t\t\tphone\n\t\t\t\tdeliveryAddressPreferences
+    {\n\t\t\t\t\t... on MailingAddress
+    {\n\t\t\t\t\t\taddress1\n\t\t\t\t\t\tcity\n\t\t\t\t\t\tcountry\n\t\t\t\t\t\tfirstName\n\t\t\t\t\t\tlastName\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n    }\n    userErrors
+    {\n      field\n      message\n    }\n  }\n}\n","variables":"{\n\t\"buyerIdentity\":
+    {\n\t\t\"countryCode\": \"CA\",\n\t\t\"deliveryAddressPreferences\":
+    [\n\t\t\t{\n\t\t\t\t\"deliveryAddress\": {\n\t\t\t\t\t\"address1\": \"123
+    Fake St.\",\n\t\t\t\t\t\"city\": \"Toronto\",\n\t\t\t\t\t\"company\":
+    \"Shopify\",\n\t\t\t\t\t\"country\": \"Canada\",\n\t\t\t\t\t\"firstName\":
+    \"Alice\",\n\t\t\t\t\t\"lastName\": \"Bob\",\n\t\t\t\t\t\"province\":
+    \"ON\"\n\t\t\t\t}\n\t\t\t}\n\t\t],\n\t\t\"email\":
+    \"example-email@shopify.com\"\n\t},\n\t\"cartId\":
+    \"gid://shopify/Cart/684d5f8c6e463f6057e77c15e34082f0\"\n}"}'
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1
+  - name: X-Shopify-Storefront-Access-Token
+    value: "{{ _.storefront_access_token }}"
+    description: ""
+    id: pair_2
+authentication: {}
+metaSortKey: 3
+isPrivate: false
+settingStoreCookies: false
+settingSendCookies: false
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
